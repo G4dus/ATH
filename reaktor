@@ -1,0 +1,55 @@
+// ATH.cpp: Definiuje punkt wejścia dla aplikacji konsolowej.
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	bool shout=0, chlodzenie=0;
+	int temp, moc = 100;
+	char akcja;
+	cout << "podaj temp:";
+	cin >> temp;
+
+	do
+	{
+		if (temp > 100)	cout << "pozostala modlitwa" << endl;
+		else if ((temp < 99) && (temp >= 69)) cout << "wylacz" << endl;
+		else if ((temp < 68) && (temp >= 50)) cout << "zwieksz chlodznie" << endl;
+		else if (temp < 49) cout << "spij spokojnie" << endl;
+	
+		cout << "co zrobic [m] zwiekszneie mocy +10		[n] zmniejszenie mocy -10		[s] wylacznie" << endl;
+		cin >> akcja;
+
+		switch (akcja)
+		{
+		case 'm':
+			moc = moc + 10;
+			break;
+		case 'n':
+			moc = moc - 10;
+			break;
+		case 's':
+			shout = true;
+			chlodzenie = true;
+			break;
+		
+		default:
+			shout = true;
+			chlodzenie = true;
+			break;
+		}
+		cout <<"chlodznie "<< chlodzenie << '\t' << moc << endl;
+
+	} while (shout == 0);
+
+
+	cout << "zamykam system" << endl;
+	system("pause");
+	return 0;
+}
+

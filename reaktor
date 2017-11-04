@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <conio.h>
 
 using namespace std;
 
@@ -22,8 +23,9 @@ int main()
 		else if ((temp < 68) && (temp >= 50)) cout << "zwieksz chlodznie" << endl;
 		else if (temp < 49) cout << "spij spokojnie" << endl;
 	
-		cout << "co zrobic [m] zwiekszneie mocy +10		[n] zmniejszenie mocy -10		[s] wylacznie" << endl;
-		cin >> akcja;
+		cout << "co zrobic [m] zwiekszneie mocy +10 " << '\t' << "[n] zmniejszenie mocy -10" << '\t'<< "[s] wylacznie" << endl;
+		
+		akcja = _getch();
 
 		switch (akcja)
 		{

@@ -31,6 +31,7 @@ int main()
 	cout << "enter H limit" << endl;            // wprowadzenie gornego limitu
 	cin >> H_limit;
 
+	system("cls");
 	cout << "start?";
 	_getch();
 	system("cls");

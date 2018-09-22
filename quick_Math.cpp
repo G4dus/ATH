@@ -47,8 +47,8 @@ while (true)
     }else
     {
         system ("cls");
-        cout << "bad!";
-        Sleep(250);
+        cout << "bad!"<<endl<< Canswer<< endl;
+        Sleep(1000);
         system ("cls");
     }
 

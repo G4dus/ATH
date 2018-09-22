@@ -19,6 +19,7 @@ char odejmowanie =  '-';
 char mnozenie = '*';
 char dzielenie = '/';
 
+int losowanie;
 char losoweDzialanie;
 
 cout << dodawanie;
@@ -31,7 +32,20 @@ system ("cls");
 
 while (true)
 {
+ 
+ losowanie = rand ()  % 3;
 
+switch(losowanie )
+{
+case 0:
+    //jakiś kod
+    break;
+    
+case wartosc_2:
+    //jakiś kod
+    break;
+
+}
 
 
     int generatedNumber_1;              // pierwsza liczba np licznik

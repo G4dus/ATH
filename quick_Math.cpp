@@ -12,9 +12,17 @@ using namespace std;
 int main()
 {
 
-int H_limit, Yanswer, Canswer;
+int H_limit, Yanswer, Canswer;              //gorny limit losowanej liczby z zakresu / twoja odpowiedz / wynik obliczenia programu
 
-cout << "enter H limit" << endl;
+char dodawanie =  '+' ;
+char odejmowanie =  '-';
+char mnozenie = '*';
+char dzielenie = '/';
+
+char losoweDzialanie;
+
+cout << dodawanie;
+cout << "enter H limit" << endl;            // wprowadzenie gornego limitu
 cin >> H_limit;
 
 cout <<"start?";
@@ -25,17 +33,29 @@ while (true)
 {
 
 
-    int generatedNumber_1;
-    int generatedNumber_2;
+
+    int generatedNumber_1;              // pierwsza liczba np licznik
+    int generatedNumber_2;              // druga liczba np mianownik
 
     srand( time(NULL));
 
     generatedNumber_1 =  (rand ()  % H_limit)  + 1;
     generatedNumber_2 =  (rand ()  % H_limit)  + 1;
 
-    Canswer = generatedNumber_1 + generatedNumber_2;
+    if (losoweDzialanie == '+')
+    Canswer = (generatedNumber_1 )  + (generatedNumber_2);
 
-    cout << generatedNumber_1 << " + "<< generatedNumber_2 << " = ";
+    if (losoweDzialanie == '-')
+    Canswer = (generatedNumber_1 )  - (generatedNumber_2);
+
+    if (losoweDzialanie == '*')
+    Canswer = (generatedNumber_1 )  * (generatedNumber_2);
+
+    if (losoweDzialanie == '/')
+    Canswer = (generatedNumber_1 )  / (generatedNumber_2);
+
+
+    cout << generatedNumber_1 << losoweDzialanie << generatedNumber_2 << " = ";
     cin >> Yanswer;
 
     if(Canswer == Yanswer)

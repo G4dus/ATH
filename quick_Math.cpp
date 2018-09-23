@@ -108,7 +108,7 @@ void lossAndCalculate(int H_limit, int &Yanswer, int &Canswer)
 
 		do
 		{
-			losowanie = rand() % 4;
+			losowanie = rand() % 3;			// podmien na 4 zeby wlaczyc dzielenie
 
 			switch (losowanie)
 			{

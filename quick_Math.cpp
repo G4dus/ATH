@@ -16,10 +16,10 @@ using namespace std;
 void lossAndCalculate(int H_limit, int &Yanswer, int &Canswer);
 void displayMenu();
 
-bool dodaw;
-bool odej;
-bool mnoz;
-bool dziel;
+bool dodaw = 1;
+bool odej = 0;
+bool mnoz = 0;
+bool dziel = 0;
 
 int main()
 {
@@ -27,17 +27,12 @@ int main()
 
 	int H_limit, Yanswer, Canswer;
 
-	cout << "enter H limit" << endl;            // wprowadzenie gornego limitu
+	cout << "Wprowadz maksymalna liczbe" << endl;        
 	cin >> H_limit;
-
 	system("cls");
-	cout << "start?";
-	_getch();
-	system("cls");
-
 
 	displayMenu();
-	//lossAndCalculate(H_limit, Yanswer, Canswer);
+	lossAndCalculate(H_limit, Yanswer, Canswer);
 	
 
 	return 0;
@@ -45,7 +40,7 @@ int main()
 
 void displayMenu()
 {
-	cout << "Chcesz dodawac T/N" << endl;
+	cout << "Chcesz dodawac? Kliknij [T] jesli chcesz enter by pominac" << endl;
 	char c = _getch();
 
 	dodaw = false;
@@ -59,8 +54,8 @@ void displayMenu()
 		dodaw = true;
 	}
 
-	cout << "Chcesz odejmowac T/N" << endl;
-	char c = _getch();
+	cout << "Chcesz odejmowac? Kliknij [T] jesli chcesz enter by pominac " << endl;
+	 c = _getch();
 
 	odej = false;
 	if (c == 't')
@@ -73,8 +68,8 @@ void displayMenu()
 		odej = true;
 	}
 
-	cout << "Chcesz mnozyc T/N" << endl;
-	char c = _getch();
+	cout << "Chcesz mnozyc? Kliknij [T] jesli chcesz enter by pominac" << endl;
+	 c = _getch();
 
 	mnoz = false;
 	if (c == 't')
@@ -87,6 +82,21 @@ void displayMenu()
 		mnoz = true;
 	}
 
+	cout << "Chcesz dzielic? Kliknij [T] jesli chcesz enter by pominac" << endl;
+	c = _getch();
+
+	mnoz = false;
+	if (c == 't')
+	{
+		mnoz = true;
+	}
+
+	if (c == 'T')
+	{
+		mnoz = true;
+	}
+
+	system("cls");
 }
 
 void lossAndCalculate(int H_limit, int &Yanswer, int &Canswer)
@@ -119,12 +129,13 @@ void lossAndCalculate(int H_limit, int &Yanswer, int &Canswer)
 				break;
 
 			}
-		} while (losoweDzialanie == '-');
+		} while (((losoweDzialanie == '-') && (odej == false)) || (((losoweDzialanie == '+') && (dodaw == false))) ||
+			(((losoweDzialanie == '*') && (mnoz == false))) || (((losoweDzialanie == '//') && (dziel == false))));
+				
+		// powyzej warunki wyliczajace dzialanie dostepne z funkcji menu 
 
-		int generatedNumber_1;              // pierwsza liczba np licznik
-		int generatedNumber_2;              // druga liczba np mianownik
-
-
+		int generatedNumber_1;            
+		int generatedNumber_2;            
 
 		generatedNumber_1 = (rand() % H_limit) + 1;
 		generatedNumber_2 = (rand() % H_limit) + 1;

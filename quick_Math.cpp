@@ -16,10 +16,10 @@ using namespace std;
 void lossAndCalculate(int H_limit, int &Yanswer, int &Canswer);
 void displayMenu();
 
-bool dodaw = 1;
-bool odej = 0;
-bool mnoz = 0;
-bool dziel = 0;
+bool dodaw;
+bool odej;
+bool mnoz;
+bool dziel;
 
 int main()
 {
@@ -85,15 +85,15 @@ void displayMenu()
 	cout << "Chcesz dzielic? Kliknij [T] jesli chcesz enter by pominac" << endl;
 	c = _getch();
 
-	mnoz = false;
+	dziel = false;
 	if (c == 't')
 	{
-		mnoz = true;
+		dziel = true;
 	}
 
 	if (c == 'T')
 	{
-		mnoz = true;
+		dziel = true;
 	}
 
 	system("cls");

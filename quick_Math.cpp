@@ -13,21 +13,20 @@
 
 using namespace std;
 
+void lossAndCalculate(int H_limit, int &Yanswer, int &Canswer);
+void displayMenu();
+
+bool dodaw;
+bool odej;
+bool mnoz;
+bool dziel;
 
 int main()
 {
+	srand(time(NULL));
 
-	int H_limit, Yanswer, Canswer;          
+	int H_limit, Yanswer, Canswer;
 
-	char dodawanie = '+';
-	char odejmowanie = '-';
-	char mnozenie = '*';
-	char dzielenie = '/';
-
-	int losowanie;
-	char losoweDzialanie;
-
-	cout << dodawanie;
 	cout << "enter H limit" << endl;            // wprowadzenie gornego limitu
 	cin >> H_limit;
 
@@ -36,36 +35,96 @@ int main()
 	_getch();
 	system("cls");
 
+
+	displayMenu();
+	//lossAndCalculate(H_limit, Yanswer, Canswer);
+	
+
+	return 0;
+}
+
+void displayMenu()
+{
+	cout << "Chcesz dodawac T/N" << endl;
+	char c = _getch();
+
+	dodaw = false;
+	if(c == 't')
+	{
+		dodaw = true;
+	}
+	
+	if (c == 'T')
+	{
+		dodaw = true;
+	}
+
+	cout << "Chcesz odejmowac T/N" << endl;
+	char c = _getch();
+
+	odej = false;
+	if (c == 't')
+	{
+		odej = true;
+	}
+
+	if (c == 'T')
+	{
+		odej = true;
+	}
+
+	cout << "Chcesz mnozyc T/N" << endl;
+	char c = _getch();
+
+	mnoz = false;
+	if (c == 't')
+	{
+		mnoz = true;
+	}
+
+	if (c == 'T')
+	{
+		mnoz = true;
+	}
+
+}
+
+void lossAndCalculate(int H_limit, int &Yanswer, int &Canswer)
+{
+	int losowanie;
 	do
 	{
+		char losoweDzialanie;
 
-		losowanie = rand() % 4;
-
-		switch (losowanie)
+		do
 		{
-		case 0:
-			losoweDzialanie = dodawanie;
-			break;
+			losowanie = rand() % 4;
 
-		case 1:
-			losoweDzialanie = odejmowanie;
-			break;
+			switch (losowanie)
+			{
+			case 0:
+				losoweDzialanie = '+';
+				break;
 
-		case 2:
-			losoweDzialanie = mnozenie;
-			break;
-		
-		case 3:
-			losoweDzialanie = dzielenie;
-			break;
+			case 1:
+				losoweDzialanie = '-';
+				break;
 
-		} 
+			case 2:
+				losoweDzialanie = '*';
+				break;
 
+			case 3:
+				losoweDzialanie = '//';
+				break;
+
+			}
+		} while (losoweDzialanie == '-');
 
 		int generatedNumber_1;              // pierwsza liczba np licznik
 		int generatedNumber_2;              // druga liczba np mianownik
 
-		srand(time(NULL));
+
 
 		generatedNumber_1 = (rand() % H_limit) + 1;
 		generatedNumber_2 = (rand() % H_limit) + 1;
@@ -103,6 +162,4 @@ int main()
 
 	} while (true);//(kbhit() != 27);
 
-
-	return 0;
 }
